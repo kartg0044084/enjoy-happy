@@ -35,7 +35,7 @@ $news=$sth->fetchAll(PDO::FETCH_ASSOC);
      <ul>
        <li><a href="index.php">首頁</a></li>
        <li><a href="frontend/about.php?pageID=1">民宿簡介</a></li>
-       <li><a href="#">週邊景點</a></li>
+       <li><a href="frontend/attractions_category.php">套裝景點</a></li>
        <li><a href="#">客房介紹</a></li>
        <li><a href="#">線上訂房系統</a></li>
        <li><a href="#">套裝行程</a></li>

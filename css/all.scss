@@ -447,6 +447,97 @@ table{
 	}
 }
 
+// ////////////////////////////////attractions_category.php/////////////////////////////////
+#attractions{
+	display: block;
+	max-width: 1160px;
+	margin: 0 auto;
+	font-family: $CHfont-family;
+	h6{
+		font-size: 30px;
+		padding: 10px 10px;
+		border-bottom:2px dotted rgb(155, 155, 155);
+	}
+	p{
+		font-size: 15px;
+		padding: 30px 20px;
+	}
+	.thumb-frame{
+		padding: 10px 10px;
+		a{
+			text-decoration: none;
+			padding: 10px 10px;
+			float: left;
+			&:hover{
+				background-color: #fff;
+				box-shadow: 0 0 5px #000;
+				transition :0.5s;
+			}
+			img{
+				width: 310px;
+				height: 230px;
+				padding: 10px 10px;
+			}
+			h5{
+				padding: 10px 10px;
+				margin-top: 15px;
+				text-align: center;
+				color: #000;
+				font-weight:normal;
+			}
+			.price{
+				padding: 10px 10px;
+				margin-top: 5px;
+				text-align: center;
+				color: #000;
+			}
+		}
+	}
+}
+// ////////////////////////////////attractions.php/////////////////////////////////
+#attractions{
+	display: block;
+	max-width: 1160px;
+	margin: 0 auto;
+	font-family: $CHfont-family;
+	.a{
+		display: inline-block;
+		margin-top: 50px;
+		margin-left: 380px;
+		padding: 10px 10px;
+		text-decoration: none;
+		background-color: rgb(55, 38, 29);
+		color: #fff;
+		border-radius: 5px 5px;
+		@media (max-width: 480px) {
+			margin-left: 100px;
+		}
+	}
+	.title{
+		padding: 10px 10px;
+		font-size: 30px;
+	}
+	.description{
+		display: inline-block;
+		float: left;
+		margin-top: 30px;
+		font-size: 20px;
+		padding: 10px 50px;
+		line-height: 30px;
+	}
+	.page-content-section{
+		display: inline-block;
+		float: left;
+		margin-top:  20px;
+		padding-left: 300px;
+		p{
+			line-height: 0px;
+		}
+		@media (max-width: 480px) {
+			padding-left: 0px;
+		}
+	}
+}
 // ////////////////////////////////nav bar/////////////////////////////////
 .button_container {
   position: fixed;
