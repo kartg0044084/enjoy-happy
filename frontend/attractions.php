@@ -23,7 +23,7 @@ $attractions=$sth->fetch(PDO::FETCH_ASSOC);
 
 
 <div id="attractions">
-  <img src="../uploads/attractions/<?php echo $attractions['picture']; ?>" alt="" style="width: 760px;height: 510px;padding: 10px 10px;">
+  <img src="../uploads/attractions/<?php echo $attractions['picture']; ?>" alt="" style="width: 500px;height: 300px;padding: 10px 10px;">
   <div class="title">行程內容</div>
   <div class="description"><?php echo $attractions['description']; ?></div>
 

@@ -1,7 +1,7 @@
 <?php
 require_once('connection/database.php');
 $limit=3;
-// 判斷目前第幾頁，若沒有page參數就預設為1
+// 計算要從第幾筆開始
 if (isset($_GET["page"])) {$page = $_GET["page"]; } else {$page=1; };
 // 計算要從第幾筆開始
 $start_from = ($page-1) * $limit;
@@ -36,7 +36,7 @@ $news=$sth->fetchAll(PDO::FETCH_ASSOC);
        <li><a href="index.php">首頁</a></li>
        <li><a href="frontend/about.php?pageID=1">民宿簡介</a></li>
        <li><a href="frontend/attractions_category.php">套裝景點</a></li>
-       <li><a href="#">客房介紹</a></li>
+       <li><a href="frontend/product_category.php">客房介紹</a></li>
        <li><a href="#">線上訂房系統</a></li>
        <li><a href="#">套裝行程</a></li>
      </ul>

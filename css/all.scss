@@ -531,13 +531,88 @@ table{
 		margin-top:  20px;
 		padding-left: 300px;
 		p{
-			line-height: 0px;
+			border-bottom: 5px solid rgb(85, 185, 244);
+			padding: 20px 20px;
 		}
 		@media (max-width: 480px) {
 			padding-left: 0px;
 		}
 	}
 }
+// ////////////////////////////////product_category/////////////////////////////////
+#product_category{
+	display: block;
+	max-width: 1160px;
+	margin: 0 auto;
+	font-family: $CHfont-family;
+	h3{
+		font-size: 30px;
+		padding: 10px 10px;
+		border-bottom:2px dotted rgb(155, 155, 155);
+	}
+	.product{
+		display: inline-block;
+		background-image: url(../img/true.jpg);
+		background-repeat: no-repeat;
+		display: inline-block;
+		float: left;
+		max-width: 400px;
+		width: $width;
+		height: 500px;
+		margin: 50px 0 50px 50px;
+		border: 0.5px solid rgb(220, 220, 220);
+			h2{
+					float: right;
+					margin: 30px 30px;
+					font-size: 25px;
+					ul{
+						text-align: right;
+						margin-top: 80px;
+						li{
+							list-style-type:none;
+							border-bottom:0.5px solid #000;
+							padding: 10px 10px;
+							margin-top: 30px;
+							font-size: 20px;
+							a{
+								text-decoration: none;
+								color: rgb(102, 102, 102);
+							}
+						}
+					}
+				}
+				@media (max-width: 480px) {
+					margin:0px;
+				}
+		}
+		@mixin product_category_img{
+			display: inline-block;
+			float: left;
+			background-size: cover;
+			-webkit-filter:brightness(.5);
+			max-width: 650px;
+			width: $width;
+			border: 0.5px solid rgb(220, 220, 220);
+			margin-top:50px;
+			height: 500px;
+			@media (max-width: 1024px) {
+				max-width: 500px;
+			}
+			@media (max-width: 480px) {
+				display: none;
+			}
+		}
+		.product_category_img{
+			@include product_category_img;
+			background-image: url(../img/101112.jpg);
+		}
+		.product_category_img2{
+			@include product_category_img;
+			background-image: url(../img/101113.jpg);
+		}
+}
+// ////////////////////////////////product/////////////////////////////////
+
 // ////////////////////////////////nav bar/////////////////////////////////
 .button_container {
   position: fixed;
