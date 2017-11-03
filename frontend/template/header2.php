@@ -1,47 +1,26 @@
-
-<div id="tool-bar">
-  <div class="container">
-  <div class="tool">
-    <a href="../member/member_apply.php">加入會員</a> 。
-    <?php if(isset($_SESSION['Account'])){ ?>
-    <a href="../member/member_edit.php">會員專區</a> 。 <a href="logout.php">登出</a>
-    <?php }else{ ?>
-    <a href="../member/member_login.php">會員登入</a> 。
-    <?php } ?>
-    <a href="../member/member_login.php"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a>
-  </div>
+<!-- nav bar -->
+<div class="button_container" id="toggle">
+<span class="top"></span>
+<span class="middle"></span>
+<span class="bottom"></span>
 </div>
+<div class="overlay" id="overlay">
+<nav class="overlay-menu">
+<ul>
+<li><a href="../../index.php">首頁</a></li>
+<li><a href="../about.php?pageID=1">民宿簡介</a></li>
+<li><a href="../attractions_category.php">套裝景點</a></li>
+<li><a href="../product_category.php">客房介紹</a></li>
+<li><a href="#">線上訂房系統</a></li>
+</ul>
+</nav>
 </div>
-<div id="header">
-  <div class="container">
-    <a href="index.php" class="logo"><img src="../../assets/images/logo.png" alt=""></a>
-
-    <ul id="navigation">
-      <li class="selected">
-        <a href="../../index.php">首頁</a>
-      </li>
-      <li class="menu">
-        <a href="../about.php?pageID=1">關於我們</a>
-        <ul class="primary">
-          <li>
-            <a href="../about.php?pageID=2">購物須知</a>
-          </li>
-          <li>
-            <a href="../about.php?pageID=3">會員條款</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="../product_no_category.php">產品介紹</a>
-      </li>
-      <li class="menu">
-        <a href="../news.php">最新消息</a>
-      </li>
-      <li>
-        <a href="../contact.php">聯絡我們</a>
-      </li>
-    </ul>
-    <div class="clearboth">	</div>
-    </div>
-
+<!-- nav bar -->
+<div id="top">
+<div class="logo"></div>
+<ul>
+<li><a href="member_apply.php">加入會員</a></li>
+<li><a href="#">會員登入</a></li>
+<li><a href="#">會員專區</a></li>
+</ul>
 </div>

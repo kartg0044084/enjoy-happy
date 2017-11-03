@@ -46,7 +46,7 @@ $news=$sth->fetchAll(PDO::FETCH_ASSOC);
   <div id="top">
     <div class="logo"></div>
     <ul>
-      <li><a href="#">加入會員</a></li>
+      <li><a href="frontend/member/member_apply.php">加入會員</a></li>
       <li><a href="#">會員登入</a></li>
       <li><a href="#">會員專區</a></li>
     </ul>
@@ -125,8 +125,8 @@ $news=$sth->fetchAll(PDO::FETCH_ASSOC);
 <div>
   <div class="list">
   <ul>
-    <li><a href="#">開店動機</a></li>
-    <li><a href="#">店名由來</a></li>
+    <li><a href="about.php?pageID=1">開店動機</a></li>
+    <li><a href="about.php?pageID=2">店名由來</a></li>
     <li><a href="#">交通資訊</a></li>
     <li><a href="#">台東市區</a></li>
     <li><a href="#">台東縱谷</a></li>

@@ -1,0 +1,335 @@
+@import "animate.scss";
+@import "reset.scss";
+@import "flexslider.scss";
+@inport url(https://fonts.googleapis.com/css?family=Ubuntu);
+$font-family: 'Ubuntu', sans-serif;
+$CHfont-family:Microsoft JhengHei;
+$width: 100%;
+
+$button-height: 25px;
+$button-width: 35px;
+$color-active: #FFF;
+$color-main: #666666;
+$color-link: #FFF;
+
+p{
+  font-family: $CHfont-family;
+}
+
+#Reservation{
+	z-index: 98;
+	position: fixed;
+	top: 300px;
+	left: 0px;
+	max-width: 50px;
+	width: $width;
+	background-color: rgb(85, 185, 244);
+	color: rgb(255,255,255);
+	font-size: 20px;
+	writing-mode: vertical-lr;
+	padding: 10px 10px;
+	border-radius:0 10px 10px 0;
+	@media (max-width: 480px) {
+		top: 200px;
+		max-width: 40px;
+		font-size: 15px;
+	 }
+			a{
+				text-decoration: none;
+				color: rgb(255,255,255);
+				font-family: $CHfont-family;
+			}
+}
+//////////////////////////////////////////////top////////////////////////////////////
+#top{
+	display: block;
+	width: $width;
+	height: 100px;
+	background-image: url(../../img/561.jpg);
+	padding-top: 15px;
+		.logo{
+			display: inline-block;
+			float: left;
+			background-image: url(../../img/logo.png);
+			width: 130px;
+			height: 75px;
+			margin-left: 20px;
+			@media (max-width: 480px) {
+				 margin-top: -10px;
+				  margin-left: 60px;
+			 }
+		}
+		ul{
+			display: inline-block;
+			float: right;
+			margin-right: 200px;
+			li{
+				float: left;
+				list-style-type:none;
+				padding: 0px 30px;
+				@media (max-width: 480px) {
+					display: none;
+				 }
+				a{
+					font-family: $CHfont-family;
+					text-decoration: none;
+					color: rgb(0,0,0);
+					font-size: 20px;
+					&:hover{
+						text-decoration:underline;
+					}
+				}
+			}
+		}
+}
+///////////////////////////////////////開始///////////////////////////////////////
+#box{
+    display: block;
+    max-width:1160px;
+    margin: 0 auto;
+    .air{    //apply_success.php div
+        height: 314px;
+        padding-top: 100px;
+        p{
+          font-size: 20px;
+        }
+    }
+}
+    header{
+    margin-top: 50px;
+    height: 125px;
+    background-image: url(../img/header.png);
+        h1{
+            font-family: $font-family,$CHfont-family;
+            text-align: center;
+            line-height: 125px;
+            font-size: 50px;
+            color: #5FAFEF;
+            font-weight:bold;
+        }
+    }
+
+///////////////////////////////////////footer///////////////////////////////////////
+#footer{
+		width: $width;
+		height: 230px;
+		background-color: rgb(55, 38, 29);
+		margin-top:130px;
+		font-family: $CHfont-family;
+		@media (max-width: 1024px) {
+			margin-top: 140px;
+			height: 370px;
+		}
+		@media (max-width: 480px) {
+			height: 450px;
+			padding: 10px 10px;
+		}
+
+		div{
+			display: block;
+			max-width: 1160px;
+			width: $width;
+			margin: 0 auto;
+			.list{
+				display: inline-block;
+				max-width: 550px;
+				width: $width;
+				@media (max-width: 1024px) {
+					margin-left: 200px;
+				}
+				@media (max-width: 480px) {
+					 margin-left: 0px;
+				}
+				ul{
+					li{
+						list-style-type:none;
+						float: left;
+						padding: 15px 50px 15px 50px;
+						@media (max-width: 480px) {
+							padding: 15px 15px 15px 15px;
+						}
+						a{
+							 text-decoration:none;
+							 color: rgb(250, 250, 210);
+						}
+					}
+				}
+			}
+			.mape{
+				display: inline-block;
+				float: right;
+				max-width: 600px;
+				width: $width;
+				@media (max-width: 1024px) {
+					margin-right: 150px;
+				}
+				@media (max-width: 480px) {
+					margin-top: 20px;
+					margin-right: 0px;
+					 padding: 10px 10px;
+				}
+				img{
+					float: left;
+					padding-top: 10px;
+					padding-right: 10px;
+				}
+				p{
+					 color: rgb(250, 250, 210);
+					 padding-top: 10px;
+				}
+			}
+		}
+}
+// ////////////////////////////////nav bar/////////////////////////////////
+.button_container {
+  position: fixed;
+  top: 5%;
+  right: 2%;
+  height: $button-height;
+  width: $button-width;
+  cursor: pointer;
+  z-index: 100;
+  transition: opacity .25s ease;
+	@media (max-width: 480px) {
+		height:17px ;
+	  width: 25px;
+	}
+  &:hover {
+    opacity: .7;
+  }
+
+  &.active {
+    .top {
+      transform: translateY(11px) translateX(0) rotate(45deg);
+      background: $color-active;
+    }
+    .middle {
+      opacity: 0;
+      background: $color-active;
+    }
+
+    .bottom {
+      transform: translateY(-11px) translateX(0) rotate(-45deg);
+      background: $color-active;
+    }
+  }
+
+  span {
+  background: $color-main;
+  border: none;
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition:  all .35s ease;
+  cursor: pointer;
+
+    &:nth-of-type(2) {
+      top: 11px;
+    }
+
+    &:nth-of-type(3) {
+      top: 22px;
+    }
+  }
+}
+
+.overlay {
+	z-index: 99;
+  position: fixed;
+  background: $color-main;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s, visibility .35s, height .35s;
+  overflow: hidden;
+  &.open {
+    opacity: .9;
+    visibility: visible;
+    height: 100%;
+
+    li {
+      animation: fadeInRight .5s ease forwards;
+      animation-delay: .35s;
+
+      &:nth-of-type(2) {
+        animation-delay: .4s;
+      }
+      &:nth-of-type(3) {
+        animation-delay: .45s;
+      }
+      &:nth-of-type(4) {
+        animation-delay: .50s;
+      }
+    }
+  }
+  nav {
+    position: relative;
+    height: 70%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    font-family: 'Vollkorn', serif;
+    font-weight: 400;
+    text-align: center;
+		font-family: $CHfont-family;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    height: 100%;
+
+    li {
+      display: block;
+      height: 25%;
+      height: calc(100% / 4);
+      min-height: 50px;
+      position: relative;
+      opacity: 0;
+
+      a {
+        display: block;
+        position: relative;
+        color: $color-link;
+        text-decoration: none;
+        overflow: hidden;
+				font-size: 20px;
+
+        &:hover:after,
+         &:focus:after,
+         &:active:after {
+           width: 100%;
+         }
+
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0%;
+          transform: translateX(-50%);
+          height: 3px;
+          background: $color-link;
+          transition: .35s;
+        }
+      }
+    }
+  }
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}

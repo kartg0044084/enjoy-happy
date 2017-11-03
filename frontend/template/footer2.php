@@ -17,7 +17,7 @@
  </ul>
  </div>
  <div class="mape">
-  <img src="../img/O1T1U65Y6U.png" alt="">
+  <img src="../../img/O1T1U65Y6U.png" alt="">
   <p>享樂民宿</p>
  <p>地址：宜蘭縣仁愛鄉大同村博望巷9-7號</p>
  <p>松崗派出所：049</p>

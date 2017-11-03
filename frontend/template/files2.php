@@ -1,10 +1,8 @@
-<link rel="stylesheet" type="text/css" href="../../assets/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../../assets/bootstrap/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="../../assets/fontawesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="../../assets/css/style.css" type="text/css">
-<link rel="stylesheet" type="text/css" href="../../assets/css/mobile.css">
-<link rel="stylesheet" type="text/css" href="../../assets/css/cart.css">
-<script src="../../assets/jq-ui/jquery-1.12.1.min.js" type="text/javascript"></script>
-<script src="../../assets/js/mobile.js" type="text/javascript"></script>
-<script src="../../assets/js/validator.min.js" type="text/javascript"></script>
-<script src="../../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="../../assets/css/all.css">
+<script src="../../assets/js/jquery.js"></script>
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../../assets/js/all.js"></script>
+<script src="../../assets/js/wow.min.js"></script>
+<script src="../../assets/js/jquery.flexslider.js"></script>
+<script src="../../assets/js/validator.min.js"></script>
