@@ -611,8 +611,59 @@ table{
 			background-image: url(../img/101113.jpg);
 		}
 }
-// ////////////////////////////////product/////////////////////////////////
+// ////////////////////////////////product_content.php/////////////////////////////////
+#product_content{
+			display: block;
+			max-width: 1160px;
+			margin: 0 auto;
+			font-family: $CHfont-family,$font-family;
+			h3{
+				font-size: 30px;
+				padding: 10px 10px;
+				border-bottom:2px dotted rgb(155, 155, 155);
+			}
+			.contenttitle{
+				margin: 30px 30px;
+				font-size: 20px;
+			}
+			img{
+				display: block;
+				width: 700px;
+				height: 400px;
+				padding: 10px 10px;
+				margin: 0 auto;
+				@media (max-width: 1024px) {
+					width: 100%;
+					height: 100%;
+				}
+				@media (max-width: 480px) {
+					width: 100%;
+					height: 100%;
+				}
+			}
+			table{
+				display: block;
+				max-width: 900px;
+				margin: 0 auto;
+				padding-top: 50px;
+				text-align:center;
+				th{
+					font-size: 15px;
+					padding: 10px 10px;
+				}
 
+			}
+			a{
+				display: inline-block;
+				margin-top: 50px;
+				float: right;
+				padding: 10px 10px;
+				text-decoration: none;
+				background-color: rgb(55, 38, 29);
+				color: #fff;
+				border-radius: 5px 5px;
+			}
+}
 // ////////////////////////////////nav bar/////////////////////////////////
 .button_container {
   position: fixed;
