@@ -36,7 +36,7 @@
           <td><?php echo $product['room']; ?></td>
           <td><?php echo $product['people']; ?>人</td>
           <td>$NT<?php echo $product['price']; ?></td>
-          <td style="text-align:left;padding:50px 50px;line-height:30px;font-size: 14px;"><?php echo $product['content']; ?></td>
+          <td style="text-align:left;padding:50px 50px;line-height:25px;font-size: 12px;"><?php echo $product['content']; ?></td>
        </tr>
      </tbody>
    </table>
