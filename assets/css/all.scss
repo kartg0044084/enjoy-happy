@@ -87,12 +87,32 @@ p{
     display: block;
     max-width:1160px;
     margin: 0 auto;
-    .air{    //apply_success.php div
+    font-family: $font-family,$CHfont-family;
+    h2{
+        font-size: 25px;
+    }
+    .air{    //apply_success.php member_login.php div
         height: 314px;
         padding-top: 100px;
         p{
-          font-size: 20px;
+          font-size: 20px; //apply_success.php p
         }
+        h6{
+          font-size: 15px; //member_login.php h6
+        }
+    }
+
+    ul{
+      margin-top: 50px;
+      li{
+        list-style-type:none;
+        float: left;
+        padding: 10px 10px;
+        a{
+          text-decoration: none;
+          padding: 10px 10px;
+        }
+      }
     }
 }
     header{

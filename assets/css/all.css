@@ -1396,12 +1396,26 @@ p {
 #box {
   display: block;
   max-width: 1160px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  font-family: "Ubuntu", sans-serif, Microsoft JhengHei; }
+  #box h2 {
+    font-size: 25px; }
   #box .air {
     height: 314px;
     padding-top: 100px; }
     #box .air p {
       font-size: 20px; }
+    #box .air h6 {
+      font-size: 15px; }
+  #box ul {
+    margin-top: 50px; }
+    #box ul li {
+      list-style-type: none;
+      float: left;
+      padding: 10px 10px; }
+      #box ul li a {
+        text-decoration: none;
+        padding: 10px 10px; }
 
 header {
   margin-top: 50px;

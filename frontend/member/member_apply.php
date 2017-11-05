@@ -25,7 +25,7 @@ session_start();
       <div id="box">
 
       <header>
-          <h1>Login</h1>
+          <h1>加入會員</h1>
       </header>
 
       <div class="row">
