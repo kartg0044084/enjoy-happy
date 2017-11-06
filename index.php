@@ -46,7 +46,7 @@ $news=$sth->fetchAll(PDO::FETCH_ASSOC);
     <div class="logo"></div>
     <ul>
       <li><a href="frontend/member/member_apply.php">加入會員</a></li>
-      <li><a href="#">會員登入</a></li>
+      <li><a href="frontend/member/member_login.php">會員登入</a></li>
       <li><a href="#">會員專區</a></li>
     </ul>
   </div>

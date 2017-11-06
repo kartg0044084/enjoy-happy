@@ -1,5 +1,6 @@
 @import "animate.scss";
 @import "reset.scss";
+@import "icon.scss";
 @import "flexslider.scss";
 @inport url(https://fonts.googleapis.com/css?family=Ubuntu);
 $font-family: 'Ubuntu', sans-serif;
@@ -19,13 +20,13 @@ p{
 #Reservation{
 	z-index: 98;
 	position: fixed;
-	top: 300px;
+	top: 200px;
 	left: 0px;
-	max-width: 50px;
+	max-width: 40px;
 	width: $width;
 	background-color: rgb(85, 185, 244);
 	color: rgb(255,255,255);
-	font-size: 20px;
+	font-size: 15px;
 	writing-mode: vertical-lr;
 	padding: 10px 10px;
 	border-radius:0 10px 10px 0;
@@ -103,7 +104,7 @@ p{
     }
 
     ul{
-      margin-top: 50px;
+
       li{
         list-style-type:none;
         float: left;
@@ -117,6 +118,7 @@ p{
 }
     header{
     margin-top: 50px;
+    margin-bottom: 50px;
     height: 125px;
     background-image: url(../img/header.png);
         h1{

@@ -2,14 +2,8 @@
 // 完成10/26
 require_once('../template/login_check.php');
 require_once('../../connection/database.php');
-$limit=3;
-// 判斷目前第幾頁，若沒有page參數就預設為1
-if (isset($_GET["page"])) {$page = $_GET["page"]; } else {$page=1; };
-// 計算要從第幾筆開始
-$start_from = ($page-1) * $limit;
-$sth=$db->query("SELECT*FROM room_no ORDER BY publishedDate DESC LIMIT ".$start_from.",". $limit);
+$sth=$db->query('SELECT*FROM room_no');
 $room_no=$sth->fetchAll(PDO::FETCH_ASSOC);
-$totalRows = count($room_no);
  ?>
 <!doctype html>
 <html>
@@ -41,63 +35,35 @@ $totalRows = count($room_no);
   <table>
     <thead>
       <tr>
+        <th>分類編號</th>
         <th>房號</th>
-        <th>房間類型ID</th>
-        <th>房間名稱ID</th>
         <th>建立時間</th>
-        <?php if ($_SESSION['level'] == 1) {?>
+          <?php if ($_SESSION['level'] == 1) {?>
         <th>刪除</th>
       <?php } ?>
       </tr>
     </thead>
+
       <tbody>
         <?php foreach($room_no as $row){ ?>
       <tr>
-        <td><?php echo $row['room_no'] ?></td>
-        <td><?php echo $row['product_categoryID'] ?></td>
-        <td><?php echo $row['productID'] ?></td>
-        <td><?php echo $row['publishedDate'] ?></td>
+        <td><?php echo $row['room_noID']; ?></td>
+        <td><a href="../product/list.php?room_noID=<?php echo $row['room_noID']; ?>"><?php echo $row['room_no']; ?>號</td>
+        <td><?php echo $row['publishedDate']; ?></td>
         <?php if ($_SESSION['level'] == 1) {?>
-        <td><a href="delete.php?newsID=<?php echo $row['room_no'];?>" class="btn btn-info" onclick="if(!confirm('是否刪除此筆資料？')){return false;};">Delete</a></td>
+        <td><a href="delete.php?room_noID=<?php echo $row['room_noID']; ?>" class="btn btn-info" onclick="if(!confirm ('是否刪除此筆資料？')){return false;};" class="btn btn-default">Delete</a></td>
       <?php } ?>
 
       </tr>
       <?php } ?>
     </tbody>
     </table>
-    <?php  if($totalRows > 0){
-        $sth = $db->query("SELECT * FROM room_no ORDER BY publishedDate DESC ");
-        $data_count = count($sth ->fetchAll(PDO::FETCH_ASSOC));
-        $total_pages = ceil($data_count / $limit);
-       ?>
-        <page aria-label="Page navigation example">
+         <page aria-label="Page navigation example"><!--空區塊 -->
       <ul class="pagination">
-          <?php   if($page > 1){ ?>
-        <li class="page-item">
-          <a class="page-link" href="list.php?page=<?php echo $page-1;?>">Previous</a>
-        </li>
-        <?php }else{ ?>
-          <li>
-            <a class="page-link" href="#">Previous</a>
-          </li>
-          <?php } ?>
-          <?php for ($i=1; $i<=$total_pages; $i++) { ?>
-        <li class="page-item">
-          <a class="page-link" href="list.php?page=<?php echo $i;?>"><?php echo $i;?></a>
-        </li>
-        <?php } ?>
-      <?php if($page < $total_pages){ ?>
-        <li class="page-item">
-          <a class="page-link" href="list.php?page=<?php echo $page+1;?>">Next</a>
-        </li>
-        <?php }else{ ?>
-          <li>
-            <a class="page-link" href="#">Next</a>
-          </li>
-          <?php } ?>
+
       </ul>
     </page>
-  <?php } ?>
+
 </div>
 <?php include_once('../template/footer.php'); ?>
 

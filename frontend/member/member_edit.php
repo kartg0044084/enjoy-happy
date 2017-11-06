@@ -61,13 +61,13 @@ $member=$sth2->fetch(PDO::FETCH_ASSOC);
 </header>
 
 <ul>
-<li><a href="#" class="label label-info">會員資料更改</a></li>
+<li><a href="member_edit.php" class="label label-info">會員資料更改</a></li>
 <li><a href="#" class="label label-info">我的購物車</a></li>
 <li><a href="#" class="label label-info">我的訂單</a></li>
 </ul>
 <div style="clear:both;"></div>
 
-<div class="row">
+
 
 <h2>會員資料修改</h2>
   <form class="form-horizontal" role="form" data-toggle="validator" action="member_edit.php" method="POST" enctype="multipart/form-data"> <!-- enctype="multipart/form-data" 為圖片上傳必要格式-->
@@ -117,7 +117,7 @@ $member=$sth2->fetch(PDO::FETCH_ASSOC);
     <label for="picture" class="control-label">會員照片</label>
   </div>
   <div class="col-sm-10">
-    <input type="file" class="form-control" id="picture" name="picture" value="<?php echo $member['picture']; ?>" >
+    <input type="file" class="form-control" id="picture" name="picture" value="<?php echo $member['picture']; ?>" required>
     <div class="help-block"></div>
   </div>
 </div>
@@ -157,7 +157,7 @@ $member=$sth2->fetch(PDO::FETCH_ASSOC);
 <input type="hidden" name="MM_update" value="UPDATE">
 <input type="submit" value="更新資料" id="submit" >
 </form>
-</div>
+
 </div>
 
 <div style="clear:both;"></div>

@@ -3,8 +3,13 @@
 require_once('../template/login_check.php');
 require_once('../../connection/database.php');
 // 方法一
-$sth=$db->query("SELECT * FROM product WHERE product_categoryID=".$_GET['product_categoryID']." ORDER BY createdDate DESC");
-$all_product=$sth->fetchAll(PDO::FETCH_ASSOC);
+if (isset($_GET['product_categoryID']) != NULL ) {
+  $sth=$db->query("SELECT * FROM product WHERE product_categoryID=".$_GET['product_categoryID']." ORDER BY createdDate DESC");
+  $all_product=$sth->fetchAll(PDO::FETCH_ASSOC);
+}else{
+  $sth=$db->query("SELECT * FROM product WHERE room_noID=".$_GET['room_noID']." ORDER BY createdDate DESC");
+  $all_product=$sth->fetchAll(PDO::FETCH_ASSOC);
+}
 
 $sth ->execute();
 $products = $sth->fetchAll(PDO::FETCH_ASSOC);

@@ -8,24 +8,20 @@
 	<?php require_once("../template/files2.php"); ?>
 </head>
 <body>
-	<div id="page">
+	<div id="row">
 		<?php require_once("../template/header2.php"); ?>
-		<div id="body" class="contact">
-			<div class="header">
-				<div>
-					<h1>會員專區</h1>
-				</div>
-			</div>
-			<div class="body">
+		<div id="box">
 
-			</div>
-			<div class="footer">
-				<div id="MemberForm">
+			<header>
+			<h1>會員專區</h1>
+			</header>
+
+			<div class="air">
+
 					<h2>登入錯誤</h2>
 					<p>
 						請確認您的帳號密碼是否有誤。
 					</p>
-				</div>
 			</div>
 		</div>
 		<?php require_once("../template/footer2.php"); ?>

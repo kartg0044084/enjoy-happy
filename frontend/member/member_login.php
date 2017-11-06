@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('../../connection/database.php');
-// print_r($_SESSION['account']);
+unset($_SESSION['account']);
 ?>
 <!doctype html>
 <!-- Website ../template by freewebsite../templates.com -->
