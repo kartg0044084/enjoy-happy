@@ -2,8 +2,14 @@
 // 完成10/26
 require_once('../template/login_check.php');
 require_once('../../connection/database.php');
-$sth=$db->query('SELECT*FROM room_no');
+$limit=10;
+// 判斷目前第幾頁，若沒有page參數就預設為1
+if (isset($_GET["page"])) {$page = $_GET["page"]; } else {$page=1; };
+// 計算要從第幾筆開始
+$start_from = ($page-1) * $limit;
+$sth=$db->query("SELECT*FROM room_no ORDER BY publishedDate DESC LIMIT ".$start_from.",". $limit);
 $room_no=$sth->fetchAll(PDO::FETCH_ASSOC);
+$totalRows = count($room_no);
  ?>
 <!doctype html>
 <html>
@@ -58,11 +64,40 @@ $room_no=$sth->fetchAll(PDO::FETCH_ASSOC);
       <?php } ?>
     </tbody>
     </table>
-         <page aria-label="Page navigation example"><!--空區塊 -->
-      <ul class="pagination">
 
+    <?php  if($totalRows > 0){
+        $sth = $db->query("SELECT * FROM room_no ORDER BY PublishedDate DESC ");
+        $data_count = count($sth ->fetchAll(PDO::FETCH_ASSOC));
+        $total_pages = ceil($data_count / $limit);
+       ?>
+        <page aria-label="Page navigation example">
+      <ul class="pagination">
+          <?php   if($page > 1){ ?>
+        <li class="page-item">
+          <a class="page-link" href="list.php?page=<?php echo $page-1;?>">Previous</a>
+        </li>
+        <?php }else{ ?>
+          <li>
+            <a class="page-link" href="#">Previous</a>
+          </li>
+          <?php } ?>
+          <?php for ($i=1; $i<=$total_pages; $i++) { ?>
+        <li class="page-item">
+          <a class="page-link" href="list.php?page=<?php echo $i;?>"><?php echo $i;?></a>
+        </li>
+        <?php } ?>
+      <?php if($page < $total_pages){ ?>
+        <li class="page-item">
+          <a class="page-link" href="list.php?page=<?php echo $page+1;?>">Next</a>
+        </li>
+        <?php }else{ ?>
+          <li>
+            <a class="page-link" href="#">Next</a>
+          </li>
+          <?php } ?>
       </ul>
     </page>
+  <?php } ?>
 
 </div>
 <?php include_once('../template/footer.php'); ?>

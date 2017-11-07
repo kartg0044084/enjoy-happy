@@ -200,14 +200,18 @@ Stretchy Nav style - common to:
      background-size:cover;
 }
 .cd-stretchy-nav ul li:nth-of-type(6) a::after {
-  background-image: url(../img/nav/PNG/user.png);
+  background-image: url(../img/nav/PNG/key.png);
      background-size:cover;
 }
 .cd-stretchy-nav ul li:nth-of-type(7) a::after {
-  background-image: url(../img/nav/PNG/stats-bars.png);
+  background-image: url(../img/nav/PNG/user.png);
      background-size:cover;
 }
 .cd-stretchy-nav ul li:nth-of-type(8) a::after {
+  background-image: url(../img/nav/PNG/stats-bars.png);
+     background-size:cover;
+}
+.cd-stretchy-nav ul li:nth-of-type(9) a::after {
   background-image: url(../img/nav/PNG/exit.png);
      background-size:cover;
 }

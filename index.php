@@ -124,8 +124,8 @@ $news=$sth->fetchAll(PDO::FETCH_ASSOC);
 <div>
   <div class="list">
   <ul>
-    <li><a href="about.php?pageID=1">開店動機</a></li>
-    <li><a href="about.php?pageID=2">店名由來</a></li>
+    <li><a href="frontend/about.php?pageID=1">開店動機</a></li>
+    <li><a href="frontend/about.php?pageID=2">店名由來</a></li>
     <li><a href="#">交通資訊</a></li>
     <li><a href="#">台東市區</a></li>
     <li><a href="#">台東縱谷</a></li>

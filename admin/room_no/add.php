@@ -78,7 +78,7 @@ for ( $i=0 ; $i<$room_no2 ; $i++ ) {
 
      <div class="form-group">
        <div class="col-sm-2">
-         <label for="room_no2" class="control-label">連號輸入</label>
+         <label for="room_no2" class="control-label">連續輸入:請輸入1~9</label>
        </div>
        <div class="col-sm-10">
          <input type="text" class="form-control" id="room_no2" name="room_no2" pattern="[0-9]{1}" data-error="請輸入字元" required>

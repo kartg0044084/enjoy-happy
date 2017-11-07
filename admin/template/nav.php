@@ -20,6 +20,7 @@
     <li><a href="../attractions/list.php"><span>景點管理</span></a></li>
     <li><a href="../product_category/list.php"><span>訂房分類管理</span></a></li>
     <li><a href="#"><span>訂單管理</span></a></li>
+    <li><a href="../room_no/list.php"><span>訂房管理</span></a></li>
     <li><a href="#"><span>會員管理</span></a></li>
     <li><a href="../login_record/login_record.php"><span>紀錄查詢</span></a></li>
     <li><a href="../logout.php"><span>登出</span></a></li>
