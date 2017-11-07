@@ -5,8 +5,6 @@ session_start();
 $sth=$db->query("SELECT * FROM product_category");
 $product_categoryname=$sth->fetchAll(PDO::FETCH_ASSOC);
 
-
-
 if(isset($_POST['MM_inquire']) && $_POST['MM_inquire'] == "INQUIRE"){
 
   if($_POST['check_in_date']>$_POST['check_out_date']){//防呆機制 起始日期大於結束日期自動修正
@@ -17,19 +15,27 @@ if(isset($_POST['MM_inquire']) && $_POST['MM_inquire'] == "INQUIRE"){
     $outdate=$_POST['check_out_date'];
   }
 
-  $sth=$db->query("SELECT*FROM product WHERE product_categoryID=".$_POST['product_categoryID']);//查詢這個分類底下之商品
-  $product=$sth->fetchAll(PDO::FETCH_ASSOC);
+    $sth=$db->query("SELECT*FROM product WHERE product_categoryID=".$_POST['product_categoryID']);//查詢這個分類底下之商品
+    $product=$sth->fetchAll(PDO::FETCH_ASSOC);
 
-   for ( $i=0 ; $i<count($product) ; $i++ ) {
+    // for ( $i=0 ; $i<count($product) ; $i++ ) {//count統整產品比數， 直到比數搜尋完成
 
-     foreach($product as $row){//將$product裏頭產品逐一帶入收尋
-     $sth=$db->query("SELECT*FROM customer_order WHERE productID=".$row);//查詢這個分類底下之商品
-     $product=$sth->fetchAll(PDO::FETCH_ASSOC);
+      foreach($product as $row){//將$product裏頭產品逐一帶入收尋
 
-     }
+      $sth=$db->query("SELECT*FROM customer_order WHERE productID=".$row['productID']);//查詢這個分類底下之商品
+      $customer_order=$sth->fetchAll(PDO::FETCH_ASSOC);
+
+       foreach($customer_order as $row){
+
+      //   if ($indate<$row['check_in_date'] AND $outdate<$row['check_in_date'])  ($indate>$row['check_out_date'] AND $outdate>$row['check_out_date']) {
+      //
+      //    }
+      // }
+  //     }
+    }
+    }
   }
 
-}
 
  ?>
 <!doctype html>
@@ -54,11 +60,11 @@ if(isset($_POST['MM_inquire']) && $_POST['MM_inquire'] == "INQUIRE"){
 
         <div class="form-group">
           <div class="col-sm-2">
-            <label for="name" class="control-label">房型</label>
+            <label for="product_categoryID" class="control-label">房型</label>
           </div>
 
           <div class="col-sm-10">
-          <select name="name" id="name">
+          <select name="product_categoryID" id="product_categoryID">
             <?php foreach($product_categoryname as $row){ //查詢母體並單一排列?>
           　<optgroup label="<?php echo $row['category']; //顯示母體分類?>">
 
@@ -87,10 +93,10 @@ if(isset($_POST['MM_inquire']) && $_POST['MM_inquire'] == "INQUIRE"){
 
         <div class="form-group">
           <div class="col-sm-2">
-            <label for="check_out_date " class="control-label">退房日期</label>
+            <label for="check_out_date" class="control-label">退房日期</label>
           </div>
           <div class="col-sm-10">
-            <input type="text" class="datepicker" id="check_out_date " name="check_out_date " required>
+            <input type="text" class="datepicker" id="check_out_date" name="check_out_date" required>
           </div>
         </div>
 
