@@ -14,28 +14,63 @@ if(isset($_POST['MM_inquire']) && $_POST['MM_inquire'] == "INQUIRE"){
     $indate=$_POST['check_in_date'];
     $outdate=$_POST['check_out_date'];
   }
+}
+  //    $sth=$db->query("SELECT*FROM product WHERE productID=".$_POST['productID']);//查詢房型ID
+  //    $product=$sth->fetchAll(PDO::FETCH_ASSOC);
+  //
+  //    foreach($product as $row){
+  //
+  //    $sth=$db->query("SELECT*FROM customer_order WHERE productID=".$row['productID']);//查詢這個customer_order底下的房型ID
+  //    $customer_order=$sth->fetchAll(PDO::FETCH_ASSOC);
+  //
+  //      $is_existed = "true";
+  //          echo $is_existed;
+  //     foreach($customer_order as $row){
+  //        if(($indate<$row['check_in_date'] && $outdate<$row['check_in_date']) || ($indate>$row['check_out_date'] && $outdate>$row['check_out_date'])) {
+  //
+  //          if($is_existed == "true"){
+  //            echo $is_existed;
+  //          將接收的商品資料儲存temp 陣列
+  //          $temp['productID']  = $row['productID'];
+  //          $temp['check_in_date']  = $indate;
+  //          $temp['check_out_date']  = $outdate;
+  //          $_SESSION['cart'][] = $temp;
+  //        }else{
+  //          $is_existed = "false";
+  //          echo $is_existed;
+  //          break;
+  //        }
+  //    }
+  //   }
+  //  }
+  //     print_r($_SESSION['cart']);
+  // }
 
-    $sth=$db->query("SELECT*FROM product WHERE product_categoryID=".$_POST['product_categoryID']);//查詢這個分類底下之商品
-    $product=$sth->fetchAll(PDO::FETCH_ASSOC);
 
-    // for ( $i=0 ; $i<count($product) ; $i++ ) {//count統整產品比數， 直到比數搜尋完成
 
-      foreach($product as $row){//將$product裏頭產品逐一帶入收尋
-
-      $sth=$db->query("SELECT*FROM customer_order WHERE productID=".$row['productID']);//查詢這個分類底下之商品
-      $customer_order=$sth->fetchAll(PDO::FETCH_ASSOC);
-
-       foreach($customer_order as $row){
-
-      //   if ($indate<$row['check_in_date'] AND $outdate<$row['check_in_date'])  ($indate>$row['check_out_date'] AND $outdate>$row['check_out_date']) {
-      //
-      //    }
-      // }
-  //     }
-    }
-    }
-  }
-
+  //   $sth=$db->query("SELECT*FROM product WHERE product_categoryID=".$_POST['product_categoryID']);//查詢這個分類底下之商品
+  //   $product=$sth->fetchAll(PDO::FETCH_ASSOC);
+  //
+  //   //  for ( $i=0 ; $i<count($product) ; $i++ ) {//count統整產品比數， 直到比數搜尋完成
+  //
+  //     foreach($product as $row){//將$product裏頭產品逐一帶入收尋
+  //
+  //     $sth=$db->query("SELECT*FROM customer_order WHERE productID=".$row['productID']);//查詢這個分類底下之商品
+  //     $customer_order=$sth->fetchAll(PDO::FETCH_ASSOC);
+  //
+  //       foreach($customer_order as $row){
+  // $is_existed = "true";
+  //         if(($indate<$row['check_in_date'] && $outdate<$row['check_in_date']) OR ($indate>$row['check_out_date'] && $outdate>$row['check_out_date'])) {
+  //
+  //         }else{
+  //           $is_existed = "false";
+  //         }
+  //
+  //        }
+  //       }
+  //      }
+  //      if ($is_existed == "false") {
+  //        echo "此房型暫時沒有空房，"
 
  ?>
 <!doctype html>
@@ -64,7 +99,7 @@ if(isset($_POST['MM_inquire']) && $_POST['MM_inquire'] == "INQUIRE"){
           </div>
 
           <div class="col-sm-10">
-          <select name="product_categoryID" id="product_categoryID">
+          <select name="productID" id="productID">
             <?php foreach($product_categoryname as $row){ //查詢母體並單一排列?>
           　<optgroup label="<?php echo $row['category']; //顯示母體分類?>">
 
@@ -72,7 +107,7 @@ if(isset($_POST['MM_inquire']) && $_POST['MM_inquire'] == "INQUIRE"){
             <?php  $product=$sth->fetchAll(PDO::FETCH_ASSOC); ?>
             <?php foreach($product as $row){?>
 
-            <option value="<?php echo $row['product_categoryID'];?>"><?php echo $row['name'];?></option>
+            <option value="<?php echo $row['productID'];?>"><?php echo $row['name'];?></option>
 
           <?php } ?>
 
