@@ -22,9 +22,10 @@ $product_categoryname=$sth->fetchAll(PDO::FETCH_ASSOC);
      $product=$sth->fetchAll(PDO::FETCH_ASSOC);
 
      foreach($product as $row){
-         $sth=$db->query("SELECT*FROM bookings WHERE productID=".$row['productID']);//查詢這個customer_order底下的房型ID
+         $sth=$db->query("SELECT*FROM bookings WHERE productID=".$row['productID']);//查詢這個bookings底下的房型ID
          $bookings=$sth->fetchAll(PDO::FETCH_ASSOC);
        }
+       if (isset($product) == ($bookings) ) {//判斷房間有無在訂單中，如無則跳過檢查
         $is_existed = "true";
             foreach($bookings as $row){
              if((strtotime($indate)<strtotime($row['check_in_date']) && strtotime($outdate)<strtotime($row['check_in_date'])) || (strtotime($indate)>strtotime($row['check_out_date']) && strtotime($outdate)>strtotime($row['check_out_date']))) {
@@ -34,13 +35,23 @@ $product_categoryname=$sth->fetchAll(PDO::FETCH_ASSOC);
               $temp['check_in_date']  = $indate;
               $temp['check_out_date']  = $outdate;
               $_SESSION['room'][] = $temp;
+              header('Location: member_login.php'); //前往member_login登陸會員
              }else{
              $is_existed = "false";
+             $msg = '房間所選日期已被預定，請重新選擇日期';
+             header('Location: date.php?msg='.$msg);
               }
           }
+       }else{
+         $temp['productID']  = $row['productID'];
+         $temp['check_in_date']  = $indate;
+         $temp['check_out_date']  = $outdate;
+         $_SESSION['room'][] = $temp;
+         header('Location: member_login.php'); //前往member_login登陸會員
+       }
    }
-    print_r($_SESSION['room']);
-    print_r($is_existed);
+    // print_r($_SESSION['room']);
+    // print_r($is_existed);
  ?>
 <!doctype html>
 <!-- Website ../template by freewebsite../templates.com -->
@@ -139,8 +150,14 @@ $('#calendar').fullCalendar({
       <button type="submit" class="btn btn-default">搜尋</button>
     </form>
     </div>
-    </div>
+    <hr>
 
+    <?php if(isset($_GET['msg']) && $_GET['msg'] != null){ ?>
+    <div class="alert alert-success">
+    <strong><?php echo $_GET['msg']; ?></strong>
+    </div>
+    <?php } ?>
+    </div>
     <div style="clear:both;"></div>
       <?php require_once("../template/footer2.php"); ?>
   </body>

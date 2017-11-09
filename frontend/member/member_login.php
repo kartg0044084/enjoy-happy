@@ -40,7 +40,7 @@ document.getElementById('imgcode').src="captcha.php";
 <label for="account" class="control-label">帳號</label>
 </div>
 <div class="col-sm-10">
-<input type="email" class="form-control" id="account" name="account"  style="margin-bottom:10px;" data-error="請輸入帳號" required>
+<input type="email" class="form-control" id="account" name="account"  style="margin-bottom:10px;" value="account" data-error="請輸入帳號" required>
 <div class="help-block with-errors"></div>
 </div>
 </div>

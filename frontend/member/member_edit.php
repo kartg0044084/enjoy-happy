@@ -62,7 +62,7 @@ $member=$sth2->fetch(PDO::FETCH_ASSOC);
 
 <ul>
 <li><a href="member_edit.php" class="label label-info">會員資料更改</a></li>
-<li><a href="#" class="label label-info">我的購物車</a></li>
+<li><a href="room_content.php" class="label label-info">我的訂房內容</a></li>
 <li><a href="#" class="label label-info">我的訂單</a></li>
 </ul>
 <div style="clear:both;"></div>
