@@ -6,14 +6,19 @@
 <script src="../../assets/js/wow.min.js"></script>
 <script src="../../assets/js/jquery.flexslider.js"></script>
 <script src="../../assets/js/validator.min.js"></script>
+<!-- 行事曆 -->
+<link href='../../assets/css/fullcalendar.min.css' rel='stylesheet' />
+<link href='../../assets/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<script src='../../assets/js/moment.min.js'></script>
+<script src='../../assets/js/fullcalendar.min.js'></script>
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
-    $( ".datepicker" ).datepicker({
-    dateFormat: "yy-mm-dd"
-  } );
-  } );
+     $( ".datepicker" ).datepicker({
+     dateFormat: "yy-mm-dd"
+   } );
+});
   </script>

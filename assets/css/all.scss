@@ -16,7 +16,11 @@ $color-link: #FFF;
 p{
   font-family: $CHfont-family;
 }
-
+// 行事曆
+#calendar {
+  max-width: 900px;
+  margin: 0 auto;
+}
 #Reservation{
 	z-index: 98;
 	position: fixed;
