@@ -13,13 +13,21 @@ if((!empty($_SESSION['check_word'])) && (!empty($_POST['checkword']))){  //判�
           if($member != NULL){
             $_SESSION['account'] = $member['account'];
             $_SESSION['memberID'] = $member['memberID'];
+            $_SESSION['name'] = $member['name'];
             header('Location: member_edit.php');
           }else{
             header('Location: login_error.php');
           }
 
           $_SESSION['check_word'] = ''; //比對正確後，清空將check_word值
+     }else{
+
+       header('Location: login_error.php');
+       $_SESSION['check_word'] = ''; //比對正確後，清空將check_word值
+
      }
+
+
 }
 
 

@@ -62,7 +62,7 @@ $member=$sth2->fetch(PDO::FETCH_ASSOC);
 
 <ul>
 <li><a href="member_edit.php" class="label label-info">會員資料更改</a></li>
-<li><a href="room_content.php" class="label label-info">我的訂房內容</a></li>
+<li><a href="room_content.php" class="label label-warning">我的訂房內容</a></li>
 <li><a href="#" class="label label-info">我的訂單</a></li>
 </ul>
 <div style="clear:both;"></div>
@@ -155,7 +155,7 @@ $member=$sth2->fetch(PDO::FETCH_ASSOC);
 <input type="hidden" name="memberID" value="<?php echo $member['memberID']; ?>">
 <!-- 隱藏表單 透過 memberID 更新(由上往下跑) 完成更新 -->
 <input type="hidden" name="MM_update" value="UPDATE">
-<input type="submit" value="更新資料" id="submit" >
+<input type="submit" class="btn btn-default" value="更新資料" id="submit" >
 </form>
 
 </div>

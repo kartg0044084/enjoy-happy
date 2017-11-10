@@ -7,6 +7,15 @@ require_once('../../connection/database.php');
 
   $sth=$db->query("SELECT * FROM product WHERE productID=".$_SESSION['room']['0']['productID']."");
   $product=$sth->fetch(PDO::FETCH_ASSOC);
+
+if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == "INSERT"){
+    $_SESSION['attractions_number'] = $_POST['attractions_number'];
+    $_SESSION['attractionsID'] = $_POST['attractionsID'];
+    $_SESSION['name'] = $_POST['name'];
+    $_SESSION['phone'] = $_POST['phone'];
+    $_SESSION['email'] = $_POST['email'];
+   header('Location: room_content_confirm.php');//傳送confirm進行最後確認
+   }
  ?>
 <!doctype html>
 <!-- Website ../template by freewebsite../templates.com -->
@@ -24,10 +33,15 @@ require_once('../../connection/database.php');
     <header>
       <h1>訂房資訊</h1>
     </header>
+
+    <ul>
+    <li><a href="date.php" class="label label-danger" onclick="if(!confirm('是否刪除此筆資料？')){return false;};">重新選擇</a></li>
+    </ul>
+
     <div class="row">
       <div class="col-md-12">
 
-    <form action="#.php" method="post" data-toggle="validator">
+    <form action="room_content.php" method="post" data-toggle="validator">
 
       <div class="form-group">
         <div class="col-sm-2">
@@ -54,7 +68,25 @@ require_once('../../connection/database.php');
           <label for="productID" class="control-label">房間名稱</label>
         </div>
         <div class="col-sm-10">
-        <label for="productID" class="control-label"><?php echo $product['name']; ?></label>
+        <a href="../product_content.php?productID=<?php echo $_SESSION['room']['0']['productID'];?>" target="_blank"><label for="productID" class="control-label"><?php echo $product['name']; ?></label></a>
+          <div class="help-block with-errors"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-2">
+          <label for="attractions_number" class="control-label">遊玩人數</label>
+        </div>
+        <div class="col-sm-10">
+          <select name="attractions_number" id="attractions_number">
+           <option value="0">無</option>
+           <option value="1">1人</option>
+           <option value="2">2人</option>
+           <option value="3">3人</option>
+           <option value="4">4人</option>
+           <option value="5">5人</option>
+           <option value="6">6人</option>
+        </select>
           <div class="help-block with-errors"></div>
         </div>
       </div>
@@ -65,7 +97,7 @@ require_once('../../connection/database.php');
         </div>
         <div class="col-sm-10">
           <select name="attractionsID" id="attractionsID">
-          <option>無</option>
+          <option value="0">無</option>
         <?php foreach($attractions as $row){ ?>
           <option value="<?php echo $row['attractionsID'];?>"><?php echo $row['name'];?>$NT<?php echo $row['price'];?></option>
         <?php } ?>
@@ -76,18 +108,10 @@ require_once('../../connection/database.php');
 
       <div class="form-group">
         <div class="col-sm-2">
-          <label for="attractions_number" class="control-label">遊玩人數</label>
+          <label for="name" class="control-label">聯絡人</label>
         </div>
         <div class="col-sm-10">
-          <select name="attractionsID" id="attractionsID">
-           <option>無</option>
-           <option value="1">1人</option>
-           <option value="2">2人</option>
-           <option value="3">3人</option>
-           <option value="4">4人</option>
-           <option value="5">5人</option>
-           <option value="6">6人</option>
-        </select>
+          <input type="text" class="form-control" id="name" name="name" value="<?php echo $_SESSION['name'];?>" data-error="請輸入聯絡人" required>
           <div class="help-block with-errors"></div>
         </div>
       </div>
@@ -103,10 +127,18 @@ require_once('../../connection/database.php');
       </div>
 
       <div class="form-group">
+        <div class="col-sm-2">
+          <label for="email" class="control-label">email</label>
+        </div>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="email" name="email" value="<?php echo $_SESSION['account']; ?>" required>
+          <div class="help-block with-errors"></div>
+        </div>
+      </div>
 
       <div class="form-group">
         <div class="col-sm-12 text-center">
-          <input type="hidden" class="form-control" id="createdDate" name="createdDate" value="<?php echo date("Y-m-d H:i:s"); ?>">
+            <input type="hidden" name="MM_insert" value="INSERT"> <!--form表單隱藏欄位-->
           <button type="submit" class="btn btn-default" style="width:200px;">確認送出</button>
         </div>
       </div>

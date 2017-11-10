@@ -1,3 +1,7 @@
+<?php
+session_start();
+require_once('../../connection/database.php');
+ ?>
 <!doctype html>
 <!-- Website ../template by freewebsite../templates.com -->
 <html>

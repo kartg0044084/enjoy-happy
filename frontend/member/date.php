@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('../../connection/database.php');
+unset($_SESSION['room']); //清除room 訂購資料
 $_SESSION['room'] = "";
 $sth=$db->query("SELECT * FROM product r LEFT JOIN customer_order b ON r.productID = b.productID WHERE b.productID IS NOT NULL" );//顯示customer_order
 $customer_order=$sth->fetchAll(PDO::FETCH_ASSOC);
@@ -22,20 +23,21 @@ $product_categoryname=$sth->fetchAll(PDO::FETCH_ASSOC);
      $product=$sth->fetchAll(PDO::FETCH_ASSOC);
 
      foreach($product as $row){
-         $sth=$db->query("SELECT*FROM bookings WHERE productID=".$row['productID']);//查詢這個bookings底下的房型ID
-         $bookings=$sth->fetchAll(PDO::FETCH_ASSOC);
+         $sth=$db->query("SELECT*FROM customer_order WHERE productID=".$row['productID']);//查詢這個customer_order底下的房型ID
+         $customer_order=$sth->fetchAll(PDO::FETCH_ASSOC);
        }
-       if (isset($product) == ($bookings) ) {//判斷房間有無在訂單中，如無則跳過檢查
+       if (isset($product) == ($customer_order) ) {//判斷房間有無在訂單中，如無則跳過檢查
         $is_existed = "true";
-            foreach($bookings as $row){
-             if((strtotime($indate)<strtotime($row['check_in_date']) && strtotime($outdate)<strtotime($row['check_in_date'])) || (strtotime($indate)>strtotime($row['check_out_date']) && strtotime($outdate)>strtotime($row['check_out_date']))) {
+            foreach($customer_order as $row){
+             if((strtotime($indate)<strtotime($row['check_in_date']) && strtotime($outdate)<strtotime($row['check_in_date'])) || (strtotime($indate)>=strtotime($row['check_out_date']) && strtotime($outdate)>strtotime($row['check_out_date']))) {
               echo $is_existed;
                // 將接收的房型資料儲存temp 陣列
               $temp['productID']  = $row['productID'];
               $temp['check_in_date']  = $indate;
               $temp['check_out_date']  = $outdate;
               $_SESSION['room'][] = $temp;
-              header('Location: member_login.php'); //前往member_login登陸會員
+              $msg = '房間日期已選擇，請重新登入帳號，完成訂單';
+              header('Location: member_login.php?msg='.$msg); //前往member_login登陸會員
              }else{
              $is_existed = "false";
              $msg = '房間所選日期已被預定，請重新選擇日期';
@@ -47,7 +49,8 @@ $product_categoryname=$sth->fetchAll(PDO::FETCH_ASSOC);
          $temp['check_in_date']  = $indate;
          $temp['check_out_date']  = $outdate;
          $_SESSION['room'][] = $temp;
-         header('Location: member_login.php'); //前往member_login登陸會員
+         $msg = '房間日期已選擇，請重新登入帳號，完成訂單';
+         header('Location: member_login.php?msg='.$msg); //前往member_login登陸會員
        }
    }
     // print_r($_SESSION['room']);
@@ -78,7 +81,7 @@ $('#calendar').fullCalendar({
   events: [
 
   <?php foreach($customer_order as $row){ ?>
-    <?php if ( strtotime(date("Y/m/d")) <= strtotime($row['check_out_date'])) {?>//如果過於等於訂房今日則不顯示
+    <?php if ( strtotime(date("Y/m/d")) < strtotime($row['check_out_date'])) {?>//如果過於等於訂房今日則不顯示
     {
       title: '已預定 <?php echo $row['room']; ?>',
       start: '<?php echo $row['check_in_date']; ?>',
@@ -153,7 +156,7 @@ $('#calendar').fullCalendar({
     <hr>
 
     <?php if(isset($_GET['msg']) && $_GET['msg'] != null){ ?>
-    <div class="alert alert-success">
+    <div class="alert alert-danger">
     <strong><?php echo $_GET['msg']; ?></strong>
     </div>
     <?php } ?>

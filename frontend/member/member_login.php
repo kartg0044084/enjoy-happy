@@ -84,6 +84,12 @@ document.getElementById('imgcode').src="captcha.php";
 
 </div>
 </div>
+<hr>
+<?php if(isset($_GET['msg']) && $_GET['msg'] != null){ ?>
+<div class="alert alert-success">
+<strong><?php echo $_GET['msg']; ?></strong>
+</div>
+<?php } ?>
 </div>
 </div>
 
