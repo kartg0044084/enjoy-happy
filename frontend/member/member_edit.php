@@ -1,7 +1,9 @@
 <?php
 session_start();
 require_once('../../connection/database.php');
-
+if(!isset($_SESSION['account'])){
+  header('Location: member_login.php');
+}
 // 圖片上傳語法
 if(isset($_FILES['picture']['name']) && $_FILES['picture']['name'] != null){
   if (!file_exists('../../uploads/products')) mkdir('../../uploads/products', 0755, true);

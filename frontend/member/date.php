@@ -86,7 +86,7 @@ $('#calendar').fullCalendar({
       title: '已預定 <?php echo $row['room']; ?>',
       start: '<?php echo $row['check_in_date']; ?>',
       end: '<?php echo $row['check_out_date']; ?>',
-      color: '#8A3034',
+      color: '#880000',
     },
   <?php } ?>
 <?php } ?>

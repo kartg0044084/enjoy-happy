@@ -26,5 +26,5 @@
 </div>
 
 <!-- 左側訂房商標 -->
-<div id="Reservation" class="icon-home"><a href="#">空房查詢</a></div>
+<div id="Reservation" class="icon-home"><a href="../frontend/member/date.php">空房查詢</a></div>
 <!-- 左側訂房商標 -->

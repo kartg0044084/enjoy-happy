@@ -19,22 +19,37 @@ $sth ->bindParam(":memberID", $_POST['memberID'], PDO::PARAM_INT);
 $sth -> execute();
 session_unset(); //清除所有session
 ?>
-<!-- // // 取得最新一筆customer_order的id值
-// $sth2 = $db->query("SELECT * FROM customer_order WHERE memberID = ".$_POST['memberID']." ORDER BY createdDate DESC");
-// $last_order = $sth2->fetch(PDO::FETCH_ASSOC);
-//
-// //寫入訂單明細order_details
-// for($i = 0; $i <count($_SESSION['cart']);$i++){
-// $sql= "INSERT INTO order_details(customer_orderID, productID, picture, name, price, quantity, createdDate) VALUES ( :customer_orderID, :productID, :picture, :name, :price, :quantity, :createdDate)";
-// $sth = $db ->prepare($sql);
-//  $sth ->bindParam(":customer_orderID", $last_order['customer_orderID'], PDO::PARAM_INT);//寫入上頭$last_order儲存的customer_order
-// $sth ->bindParam(":productID", $_SESSION['cart'][$i]['productID'], PDO::PARAM_INT);
-// $sth ->bindParam(":picture", $_SESSION['cart'][$i]['picture'], PDO::PARAM_STR);
-// $sth ->bindParam(":name", $_SESSION['cart'][$i]['name'], PDO::PARAM_STR);
-// $sth ->bindParam(":price", $_SESSION['cart'][$i]['price'], PDO::PARAM_INT);
-// $sth ->bindParam(":quantity",$_SESSION['cart'][$i]['quantity'], PDO::PARAM_INT);
-// $sth ->bindParam(":createdDate", $_SESSION['createdDate'], PDO::PARAM_STR);
-// $sth -> execute();
-// }
-// unset($_SESSION['cart']);
-// //寄訂單完成信給會員(給管理者)之後要補程式 -->
+<!doctype html>
+<!-- Website ../template by freewebsite../templates.com -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>享樂-訂房系統</title>
+	<?php require_once("../template/files2.php"); ?>
+</head>
+<body>
+  <?php require_once("../template/header2.php"); ?>
+
+	<div id="box">
+    <header>
+      <h1>訂房完成</h1>
+    </header>
+
+<div class="air">
+	<div class="text">
+住房、退房時限規定：<br>
+入住時間(check-in)    為15:00後。請依民宿之規定辦理入住，住房旅客必須提供本人身分證(或護照)，以便查核登記。<br>
+若您無法在20:00前辦理入住手續，請提前與民宿電話確認保留，否則將視為取消訂房，恕不退費，同時民宿有權將房間給予其他候補旅客。<br>
+退房時間(check-out)  為11:00前。超過退房時間一個小時將依當日房價1/3計費，超過17：00將以當日房價計費。<br>
+若持特殊優惠價格入住者，請在辦理住房手續時檢附證明文件。<br>
+入住前一晚，民宿將會與入住之房客做電話確認。<br>
+</div>
+</div>
+<div style="clear:both;"></div>
+  </div>
+
+    <div style="clear:both;"></div>
+    <?php require_once("../template/footer2.php"); ?>
+  </body>
+  </html>

@@ -36,7 +36,7 @@ $news=$sth->fetchAll(PDO::FETCH_ASSOC);
        <li><a href="frontend/about.php?pageID=1">民宿簡介</a></li>
        <li><a href="frontend/attractions_category.php">套裝景點</a></li>
        <li><a href="frontend/product_category.php">客房介紹</a></li>
-       <li><a href="#">線上訂房系統</a></li>
+       <li><a href="frontend/member/date.php">線上訂房系統</a></li>
        <li><a href="#">套裝行程</a></li>
      </ul>
    </nav>
@@ -47,7 +47,7 @@ $news=$sth->fetchAll(PDO::FETCH_ASSOC);
     <ul>
       <li><a href="frontend/member/member_apply.php">加入會員</a></li>
       <li><a href="frontend/member/member_login.php">會員登入</a></li>
-      <li><a href="#">會員專區</a></li>
+      <li><a href="frontend/member/member_edit.php">會員專區</a></li>
     </ul>
   </div>
 
@@ -89,7 +89,7 @@ $news=$sth->fetchAll(PDO::FETCH_ASSOC);
 <div id="room">
     <p>房間一覽</p>
     <div class="room1">
-      <div><a href="#"><h4>和田雙人套房</h4><br>
+      <div><a href="frontend/product_content.php?productID=4"><h4>和田雙人套房</h4><br>
       <br>※	冷氣、液晶電視、數位頻道、WIFI
       <br>※	精美牙刷沐浴組(拋棄式盥洗用品)、吹風機、大毛巾、小毛巾。
       <br>※	快煮壺、茶包、礦泉水
@@ -99,7 +99,7 @@ $news=$sth->fetchAll(PDO::FETCH_ASSOC);
       </div>
     </div>
     <div class="room2">
-      <div><a href="#"><h4>山嵐套房</h4><br>
+      <div><a href="frontend/product_content.php?productID=6"><h4>山嵐套房</h4><br>
       <br>※	冷氣、液晶電視、數位頻道、WIFI
       <br>※	精美牙刷沐浴組(拋棄式盥洗用品)、吹風機、大毛巾、小毛巾。
       <br>※	快煮壺、茶包、礦泉水
@@ -109,7 +109,7 @@ $news=$sth->fetchAll(PDO::FETCH_ASSOC);
       </div>
     </div>
     <div class="room3">
-      <div><a href="#"><h4>邀月六人套房</h4><br>
+      <div><a href="frontend/product_content.php?productID=7"><h4>邀月六人套房</h4><br>
       <br>※	冷氣、液晶電視、數位頻道、WIFI
       <br>※	精美牙刷沐浴組(拋棄式盥洗用品)、吹風機、大毛巾、小毛巾。
       <br>※	快煮壺、茶包、礦泉水
@@ -148,7 +148,7 @@ $news=$sth->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 <!-- 左側訂房商標 -->
-<div id="Reservation" class="icon-home"><a href="#">空房查詢</a></div>
+<div id="Reservation" class="icon-home"><a href="frontend/member/date.php">空房查詢</a></div>
 <!-- 左側訂房商標 -->
 </body>
 </html>

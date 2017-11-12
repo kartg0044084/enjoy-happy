@@ -2,6 +2,9 @@
 session_start();
 require_once('../../connection/database.php');
 
+if(!isset($_SESSION['account'])){
+  header('Location: member_login.php');
+}
   $sth=$db->query("SELECT * FROM attractions");
   $attractions=$sth->fetchAll(PDO::FETCH_ASSOC);
 

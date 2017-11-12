@@ -105,6 +105,15 @@ p{
         h6{
           font-size: 15px; //member_login.php h6
         }
+   .text{
+          font-size: 14px;
+          padding: 10px 10px;
+          line-height: 25px;
+          @media (max-width: 480px) {
+      			font-size: 15px;
+      		}
+        }
+
     }
 
     ul{
