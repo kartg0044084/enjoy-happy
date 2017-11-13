@@ -226,13 +226,15 @@ p{
 .button_container {
   position: fixed;
   top: 5%;
-  right: 2%;
+  right: 4%;
   height: $button-height;
   width: $button-width;
   cursor: pointer;
   z-index: 100;
   transition: opacity .25s ease;
 	@media (max-width: 480px) {
+    top: 5%;
+    right: 4%;
 		height:17px ;
 	  width: 25px;
 	}
