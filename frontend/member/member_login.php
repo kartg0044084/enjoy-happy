@@ -25,7 +25,7 @@ document.getElementById('imgcode').src="captcha.php";
 <?php require_once("../template/header2.php"); ?>
 <div id="box">
 
-<div class="air">
+<div class="bir">
 
 <header>
 <h1>Login</h1>

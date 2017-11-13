@@ -35,9 +35,7 @@ p{
 	padding: 10px 10px;
 	border-radius:0 10px 10px 0;
 	@media (max-width: 480px) {
-		top: 200px;
-		max-width: 40px;
-		font-size: 15px;
+		display: none;
 	 }
 			a{
 				text-decoration: none;
@@ -115,7 +113,17 @@ p{
         }
 
     }
+  .bir{
+          height: 800px;
+          padding-top: 100px;
+          p{
+            font-size: 20px; //apply_success.php p
+          }
+          h6{
+            font-size: 15px; //member_login.php h6
+          }
 
+  }
     ul{
 
       li{
