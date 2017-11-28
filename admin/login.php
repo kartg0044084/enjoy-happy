@@ -48,7 +48,7 @@ if (isset($_POST['MM_login']) && $_POST['MM_login'] == 'LOGIN') {
       <h1>享樂會員登入系統</h1>
       <input name="account" id="account" type="text" value="account" onfocus="this.value=''" /><!--END USERNAME-->
     <!--PASSWORD--><input name="password" id="password" type="password" value="Password" onfocus="this.value=''" /><!--END PASSWORD-->
-      <button type="submit" name="submit">燈入</button>
+      <button type="submit" name="submit">燈1入</button>
 
 
       <?php if(isset($_GET['msg']) && $_GET['msg'] != null){ ?>
